@@ -15,9 +15,6 @@ app.use(express.urlencoded({extended: true}));
 app.set('sessionMiddleware', session({secret: 'key'}));
 app.use((...args) => app.get('sessionMiddleware')(...args));
 
-app.post('/api/userData', handlers.getUserData);
-// app.post('/signup', handlers.signup);
-// app.post('/validateLogin', handlers.validateLogin);
-// app.post('/logOut', handlers.logOut);
+app.post('/api/userData', handlers.addUser);
 
 module.exports = {app};

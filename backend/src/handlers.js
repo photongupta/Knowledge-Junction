@@ -1,8 +1,8 @@
-const getUserData = (req, res) => {
+const addUser = (req, res) => {
   const {profile} = req.body;
   console.log(profile);
 
   res.json({status: 'got'});
 };
 
-module.exports = {getUserData};
+module.exports = {addUser};
