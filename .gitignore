@@ -10,7 +10,7 @@
 
 # production
 /build
-
+/spikes
 # misc
 .DS_Store
 .env.local
