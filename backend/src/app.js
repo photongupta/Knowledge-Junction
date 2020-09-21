@@ -3,10 +3,17 @@ const logger = require('morgan');
 const session = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const handlers = require('./handlers');
+const Database = require('./database');
+const {getRedisClient} = require('./redisClient');
 const {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI} = require('../config');
 
 const app = express();
-app.locals = {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI};
+const redisClient = getRedisClient();
+const db = new Database(redisClient);
+
+app.locals = {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, db};
+
+app.use(handlers.attachDetails);
 
 app.use(express.json());
 app.use(cookieParser());
