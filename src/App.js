@@ -1,5 +1,5 @@
 import React from 'react';
-import KnowledgeJunction from './component/KnowledgeJunction';
+import KnowledgeJunction from './component/knowledgeJunction';
 import './App.css';
 
 function App() {
