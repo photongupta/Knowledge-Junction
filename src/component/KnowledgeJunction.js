@@ -5,8 +5,12 @@ import Index from './Index';
 import Home from './Home';
 
 const KnowledgeJunction = function () {
-  const [isLoggedIn, setLoginStatus] = useState(false);
+  const [isLoggedIn, setLoginStatus] = useState(null);
   const [topics, updateTopics] = useState([]);
+
+  const handlerTitle = function (title) {
+    console.log(title);
+  };
 
   useEffect(() => {
     appApi.getTopics().then(({topics}) => {
@@ -24,7 +28,11 @@ const KnowledgeJunction = function () {
     <Router>
       <Switch>
         <Route path="/">
-          {isLoggedIn ? <Home topics={topics} /> : <Index />}
+          {isLoggedIn ? (
+            <Home topics={topics} onTitle={handlerTitle} />
+          ) : (
+            <Index />
+          )}
         </Route>
       </Switch>
     </Router>
