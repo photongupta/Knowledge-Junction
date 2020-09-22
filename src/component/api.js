@@ -7,7 +7,7 @@ const sendPostReq = function (url, body) {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(body),
-  });
+  }).then((response) => response.json());
 };
 
 const isLoggedIn = () => sendGetReq('api/isLoggedIn');
@@ -20,4 +20,15 @@ const getOauthUrl = function () {
   });
 };
 
-module.exports = {sendGetReq, sendPostReq, isLoggedIn, getOauthUrl};
+const getTopics = () => sendGetReq('api/topics');
+
+const getContent = (id) => sendPostReq('api/content', {id});
+
+module.exports = {
+  sendGetReq,
+  sendPostReq,
+  isLoggedIn,
+  getOauthUrl,
+  getTopics,
+  getContent,
+};

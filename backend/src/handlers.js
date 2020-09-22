@@ -5,16 +5,22 @@ const getUserData = (req, res) => {
   const {code} = req.query;
   const {users, db} = req.app.locals;
   const tokenOptions = getTokenOption(code, req.app.locals);
-  request(tokenOptions).then(({access_token}) => {
-    request(getUserInfoOption(access_token)).then((userInfo) => {
-      if (users.every((user) => user.sub !== userInfo.sub)) {
-        users.push(userInfo);
-      }
-      req.session.name = userInfo.name;
-      req.session.picture = userInfo.picture;
-      db.set('users', users).then(() => res.redirect('http://localhost:3000/'));
-    });
-  });
+  console.log('hi', code);
+  request(tokenOptions)
+    .then(({access_token}) => {
+      console.log(access_token, '------------------');
+      request(getUserInfoOption(access_token)).then((userInfo) => {
+        if (users.every((user) => user.sub !== userInfo.sub)) {
+          users.push(userInfo);
+        }
+        req.session.name = userInfo.name;
+        req.session.picture = userInfo.picture;
+        db.set('users', users).then(() =>
+          res.redirect('http://localhost:3000/')
+        );
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 const getAppInfo = (req, res) => {
@@ -38,11 +44,35 @@ const attachDetails = (req, res, next) => {
   const db = req.app.locals.db;
   db.get('users')
     .then((users) => {
-      console.log(users);
       req.app.locals.users = users || [];
     })
-    .then(() => db.get(''))
-    .then(next);
+    .then(() =>
+      db
+        .get('topics')
+        .then((topics) => {
+          req.app.locals.topics = topics || [];
+        })
+        .then(next)
+    );
 };
 
-module.exports = {getUserData, logout, isLoggedIn, getAppInfo, attachDetails};
+const getTopics = (req, res) => {
+  req.app.locals.db.get('topics').then((topics) => res.json({topics}));
+};
+
+const getContent = (req, res) => {
+  const {id} = req.body;
+  const content = req.app.locals.topics.find((topic) => topic.id === +id)
+    .content;
+  res.json({content});
+};
+
+module.exports = {
+  getUserData,
+  logout,
+  isLoggedIn,
+  getAppInfo,
+  attachDetails,
+  getTopics,
+  getContent,
+};
