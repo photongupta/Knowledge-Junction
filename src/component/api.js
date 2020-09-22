@@ -20,9 +20,12 @@ const getOauthUrl = function () {
   });
 };
 
-const getTopics = () => sendGetReq('api/topics');
+const getTopics = () => sendGetReq('api/topics').then((res) => res.topics);
 
 const getContent = (id) => sendPostReq('api/content', {id});
+
+const addTitle = (title) =>
+  sendPostReq('api/addTitle', {title}).then(getTopics);
 
 module.exports = {
   sendGetReq,
@@ -31,4 +34,5 @@ module.exports = {
   getOauthUrl,
   getTopics,
   getContent,
+  addTitle,
 };

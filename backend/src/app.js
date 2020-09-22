@@ -28,6 +28,7 @@ app.get('/api/isLoggedIn', handlers.isLoggedIn);
 app.get('/api/appInfo', handlers.getAppInfo);
 app.get('/api/Topics', handlers.getTopics);
 app.post('/api/content', handlers.getContent);
+app.post('/api/addTitle', handlers.addTitle);
 app.get('/callback', handlers.getUserData);
 app.get('/logout', handlers.logout);
 

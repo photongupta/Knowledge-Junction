@@ -62,9 +62,16 @@ const getTopics = (req, res) => {
 
 const getContent = (req, res) => {
   const {id} = req.body;
-  const content = req.app.locals.topics.find((topic) => topic.id === +id)
-    .content;
+  const topic = req.app.locals.topics.find((topic) => topic.id === +id);
+  const content = topic ? topic.content : 'No content Found';
   res.json({content});
+};
+
+const addTitle = (req, res) => {
+  const {title} = req.body;
+  const {topics, db} = req.app.locals;
+  topics.push({title, content: null});
+  db.set('topics', topics).then(() => res.json({status: 'added'}));
 };
 
 module.exports = {
@@ -75,4 +82,5 @@ module.exports = {
   attachDetails,
   getTopics,
   getContent,
+  addTitle,
 };

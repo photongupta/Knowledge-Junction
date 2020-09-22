@@ -6,16 +6,14 @@ import Home from './Home';
 
 const KnowledgeJunction = function () {
   const [isLoggedIn, setLoginStatus] = useState(null);
-  const [topics, updateTopics] = useState([]);
+  const [topics, setTopics] = useState([]);
 
-  const handlerTitle = function (title) {
-    console.log(title);
+  const handleTitle = function (title) {
+    appApi.addTitle(title).then(setTopics);
   };
 
   useEffect(() => {
-    appApi.getTopics().then(({topics}) => {
-      updateTopics(topics);
-    });
+    appApi.getTopics().then(setTopics);
   }, []);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const KnowledgeJunction = function () {
       <Switch>
         <Route path="/">
           {isLoggedIn ? (
-            <Home topics={topics} onTitle={handlerTitle} />
+            <Home topics={topics} onTitle={handleTitle} />
           ) : (
             <Index />
           )}
