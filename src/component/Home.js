@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TitleNavbar from './TitleNavbar';
 import Api from './api';
-import TopNavbar from './TopNavbar';
+import Menubar from './Menubar';
 
 const Home = function (props) {
   const [topics, setTopics] = useState([]);
@@ -16,7 +16,7 @@ const Home = function (props) {
 
   return (
     <div>
-      <TopNavbar onTitle={handleTitle} onLogout={props.onLogout} />
+      <Menubar onTitle={handleTitle} onLogout={props.onLogout} />
       <TitleNavbar topics={topics} />
     </div>
   );

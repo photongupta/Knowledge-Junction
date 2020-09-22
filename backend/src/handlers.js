@@ -72,6 +72,10 @@ const addTitle = (req, res) => {
   db.set('topics', topics).then(() => res.json({status: 'added'}));
 };
 
+const getUserName = (req, res) => {
+  res.json({name: req.session.name});
+};
+
 module.exports = {
   getUserData,
   logout,
@@ -81,4 +85,5 @@ module.exports = {
   getTopics,
   getContent,
   addTitle,
+  getUserName,
 };
