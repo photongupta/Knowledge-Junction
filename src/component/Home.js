@@ -1,22 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TitleNavbar from './TitleNavbar';
-import AddTitle from './AddTitle';
-
-const TopNavbar = function (props) {
-  return (
-    <div className="top-nav">
-      <h1>K J</h1>
-      <a href={`http://localhost:8080/logout`}>Log out</a>
-      <AddTitle onTitle={props.onTitle} />
-    </div>
-  );
-};
+import Api from './api';
+import TopNavbar from './TopNavbar';
 
 const Home = function (props) {
+  const [topics, setTopics] = useState([]);
+
+  const handleTitle = function (title) {
+    Api.addTitle(title).then(setTopics);
+  };
+
+  useEffect(() => {
+    Api.getTopics().then(setTopics);
+  }, []);
+
   return (
     <div>
-      <TopNavbar onTitle={props.onTitle} />
-      <TitleNavbar topics={props.topics} />
+      <TopNavbar onTitle={handleTitle} onLogout={props.onLogout} />
+      <TitleNavbar topics={topics} />
     </div>
   );
 };

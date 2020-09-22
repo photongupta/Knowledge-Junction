@@ -5,10 +5,8 @@ const getUserData = (req, res) => {
   const {code} = req.query;
   const {users, db} = req.app.locals;
   const tokenOptions = getTokenOption(code, req.app.locals);
-  console.log('hi', code);
   request(tokenOptions)
     .then(({access_token}) => {
-      console.log(access_token, '------------------');
       request(getUserInfoOption(access_token)).then((userInfo) => {
         if (users.every((user) => user.sub !== userInfo.sub)) {
           users.push(userInfo);
@@ -37,7 +35,7 @@ const isLoggedIn = (req, res) => {
 
 const logout = (req, res) => {
   req.session = null;
-  res.redirect('http://localhost:3000/');
+  res.json({loggedOut: true});
 };
 
 const attachDetails = (req, res, next) => {

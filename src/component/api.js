@@ -27,6 +27,8 @@ const getContent = (id) => sendPostReq('api/content', {id});
 const addTitle = (title) =>
   sendPostReq('api/addTitle', {title}).then(getTopics);
 
+const logout = () => sendPostReq('api/logout');
+
 module.exports = {
   sendGetReq,
   sendPostReq,
@@ -35,4 +37,5 @@ module.exports = {
   getTopics,
   getContent,
   addTitle,
+  logout,
 };
