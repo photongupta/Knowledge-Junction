@@ -1,6 +1,13 @@
 const {request} = require('./request');
 const {getTokenOption, getUserInfoOption} = require('./option');
 
+const login = (req, res) => {
+  const {CLIENT_ID, SCOPE, REDIRECT_URI} = req.app.locals();
+  const query = `client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=code`;
+  const url = `https://accounts.google.com/o/oauth2/v2/auth?${query}`;
+  res.redirect(url);
+};
+
 const getUserData = (req, res) => {
   const {code} = req.query;
   const {users, db} = req.app.locals;
@@ -21,23 +28,6 @@ const getUserData = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-const getAppInfo = (req, res) => {
-  const {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SCOPE} = req.app.locals;
-  res.json({CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SCOPE});
-};
-
-const isLoggedIn = (req, res) => {
-  if (req.session.isNew) {
-    return res.json({loggedIn: false});
-  }
-  res.json({loggedIn: true});
-};
-
-const logout = (req, res) => {
-  req.session = null;
-  res.json({loggedOut: true});
-};
-
 const attachDetails = (req, res, next) => {
   const db = req.app.locals.db;
   db.get('users')
@@ -54,8 +44,24 @@ const attachDetails = (req, res, next) => {
     );
 };
 
+const isLoggedIn = (req, res) => {
+  if (req.session.isNew) {
+    return res.json({loggedIn: false});
+  }
+  res.json({loggedIn: true});
+};
+
+const logout = (req, res) => {
+  req.session = null;
+  res.json({loggedOut: true});
+};
+
 const getTopics = (req, res) => {
   req.app.locals.db.get('topics').then((topics) => res.json({topics}));
+};
+
+const getUserName = (req, res) => {
+  res.json({name: req.session.name});
 };
 
 const getContent = (req, res) => {
@@ -72,18 +78,14 @@ const addTitle = (req, res) => {
   db.set('topics', topics).then(() => res.json({status: 'added'}));
 };
 
-const getUserName = (req, res) => {
-  res.json({name: req.session.name});
-};
-
 module.exports = {
   getUserData,
   logout,
   isLoggedIn,
-  getAppInfo,
   attachDetails,
   getTopics,
   getContent,
   addTitle,
   getUserName,
+  login,
 };
