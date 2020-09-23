@@ -7,17 +7,17 @@ import Home from './Home';
 const KnowledgeJunction = function () {
   const [isLoggedIn, setLoginStatus] = useState(null);
 
+  const updateLoginStatus = () => Api.isLoggedIn().then(setLoginStatus);
+
   useEffect(() => {
-    Api.isLoggedIn().then(({loggedIn}) => {
-      setLoginStatus(loggedIn);
-    });
+    updateLoginStatus();
   }, []);
 
   return (
     <Router>
       <Switch>
         <Route path="/">
-          {isLoggedIn ? <Home onLogout={setLoginStatus} /> : <Index />}
+          {isLoggedIn ? <Home onLogout={updateLoginStatus} /> : <Index />}
         </Route>
       </Switch>
     </Router>

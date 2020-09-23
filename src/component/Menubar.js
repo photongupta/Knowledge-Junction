@@ -8,7 +8,9 @@ const Menubar = function (props) {
 
   useEffect(() => {
     Api.getUserName().then(({name}) => {
-      setName(name);
+      if (name) {
+        setName(name);
+      }
     });
   });
 

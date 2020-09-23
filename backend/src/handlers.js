@@ -2,7 +2,8 @@ const {request} = require('./request');
 const {getTokenOption, getUserInfoOption} = require('./option');
 
 const login = (req, res) => {
-  const {CLIENT_ID, SCOPE, REDIRECT_URI} = req.app.locals();
+  const {CLIENT_ID, SCOPE, REDIRECT_URI} = req.app.locals;
+  console.log(CLIENT_ID, SCOPE, REDIRECT_URI);
   const query = `client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=code`;
   const url = `https://accounts.google.com/o/oauth2/v2/auth?${query}`;
   res.redirect(url);
@@ -74,8 +75,10 @@ const getContent = (req, res) => {
 const addTitle = (req, res) => {
   const {title} = req.body;
   const {topics, db} = req.app.locals;
-  topics.push({title, content: null});
-  db.set('topics', topics).then(() => res.json({status: 'added'}));
+  db.getId('titleId').then((id) => {
+    topics.push({title, content: null, id});
+    db.set('topics', topics).then(() => res.json({status: 'added'}));
+  });
 };
 
 module.exports = {

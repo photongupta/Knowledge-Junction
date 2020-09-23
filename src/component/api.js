@@ -10,7 +10,8 @@ const sendPostReq = function (url, body) {
   }).then((response) => response.json());
 };
 
-const isLoggedIn = () => sendGetReq('api/isLoggedIn');
+const isLoggedIn = () =>
+  sendGetReq('api/isLoggedIn').then(({loggedIn}) => loggedIn);
 
 const getTopics = () => sendGetReq('api/topics').then((res) => res.topics);
 

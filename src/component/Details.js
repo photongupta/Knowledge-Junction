@@ -7,7 +7,7 @@ const Details = function (props) {
   const {id} = useParams();
 
   useEffect(() => {
-    Api.getContent(id).then(({content}) => {
+    Api.getContent(id || 1).then(({content}) => {
       setContent(content);
     });
   });

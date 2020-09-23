@@ -5,13 +5,13 @@ const cookieParser = require('cookie-parser');
 const handlers = require('./handlers');
 const Database = require('./database');
 const {getRedisClient} = require('./redisClient');
-const {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI} = require('../config');
+const {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SCOPE} = require('../config');
 
 const app = express();
 const redisClient = getRedisClient();
 const db = new Database(redisClient);
 
-app.locals = {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, db};
+app.locals = {CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, db, SCOPE};
 
 app.use(handlers.attachDetails);
 
