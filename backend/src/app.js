@@ -27,7 +27,7 @@ app.use((...args) => app.get('sessionMiddleware')(...args));
 app.get('/login', handlers.login);
 app.get('/callback', handlers.getUserData);
 app.get('/api/isLoggedIn', handlers.isLoggedIn);
-app.get('/api/getUserName', handlers.getUserName);
+app.get('/api/getUserImg', handlers.getUserImg);
 app.get('/api/Topics', handlers.getTopics);
 app.post('/api/content', handlers.getContent);
 app.post('/api/addTitle', handlers.addTitle);

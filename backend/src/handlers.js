@@ -61,8 +61,8 @@ const getTopics = (req, res) => {
   req.app.locals.db.get('topics').then((topics) => res.json({topics}));
 };
 
-const getUserName = (req, res) => {
-  res.json({name: req.session.name});
+const getUserImg = (req, res) => {
+  res.json({imgUrl: req.session.picture});
 };
 
 const getContent = (req, res) => {
@@ -89,6 +89,6 @@ module.exports = {
   getTopics,
   getContent,
   addTitle,
-  getUserName,
+  getUserImg,
   login,
 };

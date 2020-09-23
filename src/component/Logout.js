@@ -8,7 +8,11 @@ const Logout = function (props) {
     });
   };
 
-  return <button onClick={logOut}>Logout</button>;
+  return (
+    <div className="logout-link" onClick={logOut}>
+      Logout
+    </div>
+  );
 };
 
 export default Logout;

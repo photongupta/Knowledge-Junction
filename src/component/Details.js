@@ -12,7 +12,7 @@ const Details = function (props) {
     });
   });
 
-  return <p>{content}</p>;
+  return <p>{content || 'Nothing to show'}</p>;
 };
 
 export default Details;

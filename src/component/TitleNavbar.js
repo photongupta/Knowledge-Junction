@@ -12,7 +12,7 @@ const TitleNavbar = function (props) {
     <Router>
       <div className="navBar">{titles}</div>
       <Switch>
-        <Route exact path="/:id">
+        <Route path="/:id">
           <Details topics={props.topics} />
         </Route>
       </Switch>

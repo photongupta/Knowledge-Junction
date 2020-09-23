@@ -22,7 +22,7 @@ const addTitle = (title) =>
 
 const logout = () => sendPostReq('api/logout');
 
-const getUserName = () => sendGetReq('api/getUserName');
+const getUserImg = () => sendGetReq('api/getUserImg');
 
 module.exports = {
   sendGetReq,
@@ -32,5 +32,5 @@ module.exports = {
   getContent,
   addTitle,
   logout,
-  getUserName,
+  getUserImg,
 };

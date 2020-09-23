@@ -4,12 +4,12 @@ import Api from './api';
 import Logout from './Logout';
 
 const Menubar = function (props) {
-  const [name, setName] = useState('John Lui');
+  const [imgUrl, setImgUrl] = useState(null);
 
   useEffect(() => {
-    Api.getUserName().then(({name}) => {
-      if (name) {
-        setName(name);
+    Api.getUserImg().then(({imgUrl}) => {
+      if (imgUrl) {
+        setImgUrl(imgUrl);
       }
     });
   });
@@ -18,14 +18,13 @@ const Menubar = function (props) {
     <div className="top-nav">
       <h1>K J</h1>
       <div className="menu">
-        <span>
-          {name
-            .split(' ')
-            .map((e) => e[0])
-            .join('')}
-        </span>
-        <Logout onLogout={props.onLogout} />
         <AddTitle onTitle={props.onTitle} />
+        <img src={imgUrl} alt="avatar" className="avatar-nav" />
+        <div className="dropdown-links">
+          <div className="links">
+            <Logout onLogout={props.onLogout} />
+          </div>
+        </div>
       </div>
     </div>
   );
