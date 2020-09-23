@@ -1,6 +1,7 @@
 .navBar{
   overflow: auto;
   white-space: nowrap;
+  background-color: rgba(230,230,230);
 }
 
 .title{
@@ -9,6 +10,8 @@
   margin-left: 30px;
   font-size:25px;
   height:35px;
+  text-decoration: none;
+  color:#666
 }
 
 
@@ -25,6 +28,20 @@
   width: calc(100% - 10.5%);
 }
 
+.menu{
+  display: flex;
+  justify-content:flex-start;
+}
+
+
+.add{
+  position: absolute;
+  top: 3%;
+  right:14%;
+  margin:15px;
+  cursor:pointer;
+}
+
 .dropdown-links {
   display: none;
   position: relative;
@@ -35,6 +52,7 @@
 }
 
 .avatar-nav {
+  margin-left: 20px;
   cursor: pointer;
 }
 
@@ -46,7 +64,7 @@
   display: flex;
   position: absolute;
   justify-content: center;
-  top: 66px;
+  top: 67px;
   right: 135px;
   flex-direction: column;
   box-shadow: -1px 1px 4px 0.08px rgba(0, 0, 0, 0.2);
@@ -95,4 +113,23 @@
 .logout-link:hover {
   text-decoration: underline;
   cursor:pointer;
+}
+
+.logo{
+  margin:25px;
+}
+
+button{
+  height:30px;
+  width:60px;
+  margin-top: 15px;
+}
+
+.input{
+  height:30px;
+  width:300px;
+}
+.current{
+  color: black;
+  text-decoration: underline;
 }

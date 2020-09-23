@@ -1,12 +1,23 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route,
+  NavLink,
+} from 'react-router-dom';
 import Details from './Details';
 
 const TitleNavbar = function (props) {
   const titles = props.topics.map(({title, id}, index) => (
-    <Link className="title" key={index} to={`/${id}`}>
+    <NavLink
+      activeClassName="current"
+      className="title"
+      key={index}
+      to={`/${id}`}
+    >
       {title}
-    </Link>
+    </NavLink>
   ));
   return (
     <Router>

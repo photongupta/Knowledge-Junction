@@ -4,17 +4,19 @@ import NewTitle from './NewTitle';
 const AddTitle = function (props) {
   const [formVisibility, setFormVisibility] = useState(null);
 
-  const setFormVisible = () => setFormVisibility(true);
-  const setFormHidden = () => setFormVisibility(false);
-
-  if (!formVisibility) {
-    return <span onClick={setFormVisible}>Add</span>;
-  }
+  const toggleFormVisibility = () =>
+    setFormVisibility((isVisible) => setFormVisibility(!isVisible));
 
   return (
     <div>
-      <span onClick={setFormVisible}>Add</span>
-      <NewTitle onSubmit={props.onTitle} onRemove={setFormHidden} />
+      <span className="add" onClick={toggleFormVisibility}>
+        Add
+      </span>
+      {formVisibility ? (
+        <NewTitle onSubmit={props.onTitle} onRemove={toggleFormVisibility} />
+      ) : (
+        ''
+      )}
     </div>
   );
 };

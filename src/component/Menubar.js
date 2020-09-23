@@ -16,7 +16,7 @@ const Menubar = function (props) {
 
   return (
     <div className="top-nav">
-      <h1>K J</h1>
+      <h1 className="logo">Knowledge junction</h1>
       <div className="menu">
         <AddTitle onTitle={props.onTitle} />
         <img src={imgUrl} alt="avatar" className="avatar-nav" />
