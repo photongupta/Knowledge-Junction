@@ -3,8 +3,20 @@ import React from 'react';
 const Index = function (props) {
   return (
     <div>
-      <h1>Knowledge Junction</h1>
-      <a href={'http://localhost:8080/login'}>Log in with Google</a>
+      <div className="container">
+        <img alt="logo" src="/images/logo.png" className="logo-i" />
+        <a
+          className="Oauth-link-container"
+          href={'http://localhost:8080/login'}
+        >
+          <img
+            src="/images/google.png"
+            alt="google-icon"
+            className="google icon"
+          />
+          <div className="Oauth-link">Log in with Google</div>
+        </a>
+      </div>
     </div>
   );
 };
