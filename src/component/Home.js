@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Details from './Details';
+import NewTitle from './NewTitle';
+import Menubar from './Menubar';
 import TitleNavbar from './TitleNavbar';
 import Api from './api';
-import Menubar from './Menubar';
 
 const Home = function (props) {
   const [topics, setTopics] = useState([]);
@@ -15,10 +18,21 @@ const Home = function (props) {
   }, []);
 
   return (
-    <div>
+    <Router>
       <Menubar onLogout={props.onLogout} />
       <TitleNavbar topics={topics} onTitle={handleTitle} />
-    </div>
+      <Switch>
+        <Route exact path="/newTitle">
+          <NewTitle onTitle={props.onTitle} />
+        </Route>
+        <Route exact path="/:id">
+          <Details topics={props.topics} />
+        </Route>
+        <Route exact path="/">
+          <Details topics={props.topics} />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 export default Home;

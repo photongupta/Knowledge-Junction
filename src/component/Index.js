@@ -4,7 +4,7 @@ const Index = function (props) {
   return (
     <div>
       <div className="container">
-        <img alt="logo" src="/images/logo.png" className="logo-i" />
+        <img alt="logo" src="/images/logo.png" className="logo-img" />
         <a
           className="Oauth-link-container"
           href={'http://localhost:8080/login'}

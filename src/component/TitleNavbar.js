@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from 'react-router-dom';
-import Details from './Details';
-import NewTitle from './NewTitle';
+import {NavLink} from 'react-router-dom';
 
 const TitleNavbar = function (props) {
   const titles = props.topics.map(({title, id}, index) => (
@@ -19,22 +12,7 @@ const TitleNavbar = function (props) {
       {title}
     </NavLink>
   ));
-  return (
-    <Router>
-      <div className="navBar">{titles}</div>
-      <Switch>
-        <Route exact path="/newTitle">
-          <NewTitle onTitle={props.onTitle} />
-        </Route>
-        <Route exact path="/:id">
-          <Details topics={props.topics} />
-        </Route>
-        <Route exact path="/">
-          <Details topics={props.topics} />
-        </Route>
-      </Switch>
-    </Router>
-  );
+  return <div className="navBar">{titles}</div>;
 };
 
 export default TitleNavbar;
