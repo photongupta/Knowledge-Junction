@@ -16,8 +16,8 @@ const Home = function (props) {
 
   return (
     <div>
-      <Menubar onTitle={handleTitle} onLogout={props.onLogout} />
-      <TitleNavbar topics={topics} />
+      <Menubar onLogout={props.onLogout} />
+      <TitleNavbar topics={topics} onTitle={handleTitle} />
     </div>
   );
 };

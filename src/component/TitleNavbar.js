@@ -6,6 +6,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import Details from './Details';
+import NewTitle from './NewTitle';
 
 const TitleNavbar = function (props) {
   const titles = props.topics.map(({title, id}, index) => (
@@ -22,7 +23,10 @@ const TitleNavbar = function (props) {
     <Router>
       <div className="navBar">{titles}</div>
       <Switch>
-        <Route path="/:id">
+        <Route exact path="/newTitle">
+          <NewTitle onTitle={props.onTitle} />
+        </Route>
+        <Route exact path="/:id">
           <Details topics={props.topics} />
         </Route>
       </Switch>
