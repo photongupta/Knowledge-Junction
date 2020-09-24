@@ -36,7 +36,7 @@
 
 .add{
   position: absolute;
-  top: 3%;
+  top: 2%;
   right:14%;
   margin:15px;
   cursor:pointer;
@@ -133,3 +133,39 @@ button{
   color: black;
   text-decoration: underline;
 }
+
+.details{
+  position: absolute;
+  left:10%;
+  top:19%
+}
+
+.button{
+  position: absolute;
+  top:18%;
+  right:12%;
+  display: flex;
+  justify-content:space-between;
+  width:150px;
+
+}
+
+.code {
+  min-height: 200px;
+  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  color: #41314e;
+  line-height: 1.6em;
+  font-size: 12px;
+  background: #f8f7fa;
+  border: 1px solid #f1f1f4;
+  box-shadow: none;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  resize: vertical;
+}
+
+.ce-block__content{
+  max-width: 1200px;
+}
+

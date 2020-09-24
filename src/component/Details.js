@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import EditorJs from 'react-editor-js';
 import Api from './api';
 import EditorTools from './EditorTool';
-import ReactHtmlParser from 'react-html-parser';
+import Description from './Description';
 
 const Details = function (props) {
   const [content, setContent] = useState(null);
@@ -29,50 +29,6 @@ const Details = function (props) {
 
   console.log(content);
 
-  let blocks = '';
-  if (content && content.blocks) {
-    blocks = content.blocks.map((element, index) => {
-      switch (element.type) {
-        case 'paragraph':
-          return (
-            <div key={index}>
-              <div>{ReactHtmlParser(element.data.text)}</div>
-              <br />
-            </div>
-          );
-
-        case 'code':
-          return (
-            <div key={index}>
-              <textarea
-                defaultValue={ReactHtmlParser(element.data.code)}
-                className="code"
-                cols="90"
-                rows="10"
-              ></textarea>
-              <br />
-            </div>
-          );
-
-        case 'header':
-          return <h2 key={index}>{element.data.text}</h2>;
-
-        case 'link':
-          return (
-            <a key={index} href={element.data.link}>
-              {element.data.link}
-            </a>
-          );
-
-        case 'delimiter':
-          return <h1 key={index}> * * *</h1>;
-
-        default:
-          return <p key={index}>No entries</p>;
-      }
-    });
-  }
-
   return (
     <div>
       {isEditable ? (
@@ -84,11 +40,10 @@ const Details = function (props) {
             instanceRef={(instance) => setEditorInstance(instance)}
             onChange={handleSave}
             tools={EditorTools}
-            // placeholder="  "
           />
         </div>
       ) : (
-        <div className="details">{blocks}</div>
+        <Description description={content} />
       )}
 
       <div className="button">
