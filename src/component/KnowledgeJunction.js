@@ -3,11 +3,12 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Api from './api';
 import Index from './Index';
 import Home from './Home';
+import UserContext from './UserContext';
 
 const KnowledgeJunction = function () {
-  const [isLoggedIn, setLoginStatus] = useState(null);
+  const [user, setUser] = useState(null);
 
-  const updateLoginStatus = () => Api.isLoggedIn().then(setLoginStatus);
+  const updateLoginStatus = () => Api.getUser().then(setUser);
 
   useEffect(() => {
     updateLoginStatus();
@@ -15,11 +16,13 @@ const KnowledgeJunction = function () {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/">
-          {isLoggedIn ? <Home onLogout={updateLoginStatus} /> : <Index />}
-        </Route>
-      </Switch>
+      <UserContext.Provider value={user}>
+        <Switch>
+          <Route path="/">
+            {user ? <Home onLogout={updateLoginStatus} /> : <Index />}
+          </Route>
+        </Switch>
+      </UserContext.Provider>
     </Router>
   );
 };

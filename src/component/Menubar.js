@@ -1,25 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext} from 'react';
 import AddTitle from './AddTitle';
-import Api from './api';
 import Logout from './Logout';
+import UserContext from './UserContext';
 
 const Menubar = function (props) {
-  const [imgUrl, setImgUrl] = useState(null);
-
-  useEffect(() => {
-    Api.getUserImg().then(({imgUrl}) => {
-      if (imgUrl) {
-        setImgUrl(imgUrl);
-      }
-    });
-  });
+  const user = useContext(UserContext);
 
   return (
     <div className="top-nav">
       <h1 className="logo">Knowledge junction</h1>
       <div className="menu">
         <AddTitle onTitle={props.onTitle} />
-        <img src={imgUrl} alt="avatar" className="avatar-nav" />
+        <img src={user.picture} alt="avatar" className="avatar-nav" />
         <div className="dropdown-links">
           <div className="links">
             <Logout onLogout={props.onLogout} />

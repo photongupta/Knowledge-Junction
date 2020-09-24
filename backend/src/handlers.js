@@ -45,11 +45,11 @@ const attachDetails = (req, res, next) => {
     );
 };
 
-const isLoggedIn = (req, res) => {
+const getUser = (req, res) => {
   if (req.session.isNew) {
-    return res.json({loggedIn: false});
+    return res.json({user: null});
   }
-  res.json({loggedIn: true});
+  res.json({user: {name: req.session.name, picture: req.session.picture}});
 };
 
 const logout = (req, res) => {
@@ -59,10 +59,6 @@ const logout = (req, res) => {
 
 const getTopics = (req, res) => {
   req.app.locals.db.get('topics').then((topics) => res.json({topics}));
-};
-
-const getUserImg = (req, res) => {
-  res.json({imgUrl: req.session.picture});
 };
 
 const getContent = (req, res) => {
@@ -108,12 +104,11 @@ const addTitle = (req, res) => {
 module.exports = {
   getUserData,
   logout,
-  isLoggedIn,
+  getUser,
   attachDetails,
   getTopics,
   getContent,
   addTitle,
-  getUserImg,
   login,
   setContent,
 };
