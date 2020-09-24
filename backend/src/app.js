@@ -29,6 +29,7 @@ app.get('/callback', handlers.getUserData);
 app.get('/api/isLoggedIn', handlers.isLoggedIn);
 app.get('/api/getUserImg', handlers.getUserImg);
 app.get('/api/Topics', handlers.getTopics);
+app.post('/api/setContent', handlers.setContent);
 app.post('/api/content', handlers.getContent);
 app.post('/api/addTitle', handlers.addTitle);
 app.post('/api/logout', handlers.logout);

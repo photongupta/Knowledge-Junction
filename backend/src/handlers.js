@@ -72,11 +72,35 @@ const getContent = (req, res) => {
   res.json({content});
 };
 
+const setContent = (req, res) => {
+  const {id, content} = req.body;
+  const {db, topics} = req.app.locals;
+  console.log(content);
+  const topic = topics.find((topic) => topic.id === +id);
+  topic.content = content;
+  db.set('topics', topics).then(() => res.json({status: 'added'}));
+};
+
 const addTitle = (req, res) => {
   const {title} = req.body;
   const {topics, db} = req.app.locals;
   db.getId('titleId').then((id) => {
-    topics.push({title, content: null, id});
+    topics.push({
+      title,
+      content: {
+        time: 1550476186479,
+        blocks: [
+          {
+            type: 'paragraph',
+            data: {
+              text: 'Add details...',
+            },
+          },
+        ],
+        version: '2.8.1',
+      },
+      id,
+    });
     db.set('topics', topics).then(() => res.json({status: 'added'}));
   });
 };
@@ -91,4 +115,5 @@ module.exports = {
   addTitle,
   getUserImg,
   login,
+  setContent,
 };

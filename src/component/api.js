@@ -15,7 +15,10 @@ const isLoggedIn = () =>
 
 const getTopics = () => sendGetReq('api/topics').then((res) => res.topics);
 
-const getContent = (id) => sendPostReq('api/content', {id});
+const getContent = (id) =>
+  sendPostReq('api/content', {id}).then(({content}) => {
+    return content;
+  });
 
 const addTitle = (title) =>
   sendPostReq('api/addTitle', {title}).then(getTopics);
@@ -23,6 +26,9 @@ const addTitle = (title) =>
 const logout = () => sendPostReq('api/logout');
 
 const getUserImg = () => sendGetReq('api/getUserImg');
+
+const setContent = (id, content) =>
+  sendPostReq('api/setContent', {id, content});
 
 module.exports = {
   sendGetReq,
@@ -33,4 +39,5 @@ module.exports = {
   addTitle,
   logout,
   getUserImg,
+  setContent,
 };
