@@ -29,6 +29,9 @@ const TitleNavbar = function (props) {
         <Route exact path="/:id">
           <Details topics={props.topics} />
         </Route>
+        <Route exact path="/">
+          <Details topics={props.topics} />
+        </Route>
       </Switch>
     </Router>
   );
