@@ -30,7 +30,7 @@ const NewTitle = function (props) {
         </div>
         <form onSubmit={handleSubmit}>
           <input
-            className="input"
+            className="new-title"
             type="text"
             value={value}
             onChange={handleChange}
