@@ -9,16 +9,16 @@
   display:inline-block;
   padding: 14px;
   margin-left: 30px;
-  font-size:25px;
-  height:35px;
+  font-size: 25px;
+  height: 35px;
   text-decoration: none;
-  color:#666
+  color:#666;
 }
 
 
 .avatar{
-  height:50px;
-  width:50px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   margin-left: 20px;
   cursor: pointer;
@@ -33,17 +33,17 @@
 
 .menu{
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
 }
 
 
 .add{
-  margin-top:6px;
+  margin-top: 6px;
 }
 
 .icon{
-  cursor:pointer;
-  height:40px;
+  cursor: pointer;
+  height: 40px;
   margin-left: 15px;
 }
 
@@ -106,33 +106,27 @@
 
 .logout-link {
   text-align: left;
-  font-size:20px;
+  font-size: 20px;
   font-weight: 600;
-
-  padding-left:20px;
-  padding-right:20px;
-
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .logout-link:hover {
-  cursor:pointer;
-  color:red
+  cursor: pointer;
+  color:red;
 }
-
 
 .logo-img{
-  height:300px;
-  margin:25px
+  height: 300px;
+  margin: 25px
 }
-
-
 
 .logo-icon{
-  height:65px;
-  margin:8px;
-  margin-left:15px;
+  height: 65px;
+  margin: 8px;
+  margin-left: 15px;
 }
-
 
 .current{
   color: black;
@@ -141,29 +135,28 @@
 
 .details{
   position: absolute;
-  left:15%;
-  top:19%
+  left: 15%;
+  top: 19%
 }
 
 .button{
   position: absolute;
-  top:18%;
-  right:10%;
+  top: 18%;
+  right: 10%;
   display: flex;
-  justify-content:space-between;
-  width:150px;
-
+  justify-content: space-between;
+  width: 150px;
 }
 
 button{
-  height:30px;
-  width:60px;
+  height: 30px;
+  width: 60px;
   margin-top: 15px;
 }
 
 .input{
-  height:44px;
-  width:300px;
+  height: 44px;
+  width: 300px;
   font-size: 20px;
 }
 
@@ -184,7 +177,7 @@ button{
 
 .ce-block__content{
   max-width: 1150px;
-  margin:0;
+  margin: 0;
 }
 
 .details{
@@ -192,17 +185,17 @@ button{
 }
 
 .container{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    align-items: center;
-    position: relative;
-    top: 237px;
-    width: 689px;
-    height: 490px;
-    left: 555px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  position: relative;
+  top: 237px;
+  width: 689px;
+  height: 490px;
+  left: 555px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
 .Oauth-link-container{
@@ -214,19 +207,17 @@ button{
   box-shadow: 0 2px 2px 0 #aaa;
   width: 280px;
   height: 53px;
-  border-radius:4px;
+  border-radius: 4px;
 }
 
 
 
 .Oauth-link-container:hover{
   box-shadow: 2px 4px 8px 0 #aaa;
-
 }
 
 .Oauth-link-container>img{
   margin-right: 10px;
-
 }
 
 .h1{
@@ -234,19 +225,19 @@ button{
 }
 
 .search-input{
-  position:absolute;
-  top:20px;
-  right:370px;
-  height:40px;
-  width:220px;
-  border:none;
+  position: absolute;
+  top: 20px;
+  right: 370px;
+  height: 40px;
+  width: 220px;
+  border: none;
   border-bottom: 1px solid #343434;
 }
 
 input{
   text-decoration: none;
-  outline:none;
+  outline: none;
   height: 44px;
-    width: 300px;
-    font-size: 20px;
+  width: 300px;
+  font-size: 20px;
 }
