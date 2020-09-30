@@ -45,10 +45,14 @@ const SearchInput = function (props) {
   return (
     <div>
       <Input onChange={handleChange} />
-      <TitleNavbar
-        topics={filteredTopics ? filteredTopics : props.topics}
-        onTitle={props.onTitle}
-      />
+      {props.topics ? (
+        <TitleNavbar
+          topics={filteredTopics ? filteredTopics : props.topics}
+          onTitle={props.onTitle}
+        />
+      ) : (
+        <p>Add topics</p>
+      )}
     </div>
   );
 };
