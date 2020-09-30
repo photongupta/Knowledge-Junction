@@ -7,7 +7,7 @@ const Index = function (props) {
         <img alt="logo" src="/images/logo.png" className="logo-img" />
         <a
           className="Oauth-link-container"
-          href={'http://localhost:8080/login'}
+          href={`${process.env.REACT_APP_LOGIN}`}
         >
           <img
             src="/images/google.png"
