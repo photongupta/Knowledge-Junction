@@ -1,16 +1,12 @@
 language: node_js
 node_js: lts/*
-cache: npm
-
-install:
-  - npm install
-
-script:
-  - npm run beforeDeploy
-
-deploy:
-  provider: heroku
-  app: $HEROKU_APP
-  api_key: $HEROKU_TOKEN
-  run: restart
-  skip_cleanup: true
+jobs:
+  include:
+    - stage: DEPLOY
+      script: './deploy.sh'
+      deploy:
+        app: photon-knowledge-junction
+        api_key: 07ba79d5-40c1-41f9-be33-28058b3a6d03
+        provider: heroku
+        run: restart
+        skip_cleanup: true
