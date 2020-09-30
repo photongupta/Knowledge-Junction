@@ -3,7 +3,6 @@
   white-space: nowrap;
   background-color: rgba(230,230,230);
  scroll-behavior: smooth; 
-  
 }
 
 .title{
@@ -66,7 +65,7 @@
   display: flex;
   position: absolute;
   justify-content: center;
-  top: 67px;
+  top: 65px;
   right: 135px;
   flex-direction: column;
   box-shadow: -1px 1px 4px 0.08px rgba(0, 0, 0, 0.2);
@@ -107,11 +106,17 @@
 
 .logout-link {
   text-align: left;
+  font-size:20px;
+  font-weight: 600;
+
+  padding-left:20px;
+  padding-right:20px;
+
 }
 
 .logout-link:hover {
-  text-decoration: underline;
   cursor:pointer;
+  color:red
 }
 
 
@@ -136,14 +141,14 @@
 
 .details{
   position: absolute;
-  left:10%;
+  left:15%;
   top:19%
 }
 
 .button{
   position: absolute;
   top:18%;
-  right:12%;
+  right:10%;
   display: flex;
   justify-content:space-between;
   width:150px;
@@ -178,7 +183,12 @@ button{
 }
 
 .ce-block__content{
-  max-width: 1200px;
+  max-width: 1150px;
+  margin:0;
+}
+
+.details{
+  max-width: 1150px;
 }
 
 .container{
@@ -201,7 +211,7 @@ button{
   align-items: center;
   text-decoration: none;
   color: black;
-  box-shadow: 0 2px 4px 0 #aaa;
+  box-shadow: 0 2px 2px 0 #aaa;
   width: 280px;
   height: 53px;
   border-radius:4px;
@@ -221,4 +231,22 @@ button{
 
 .h1{
   font-size: 50px;
+}
+
+.search-input{
+  position:absolute;
+  top:20px;
+  right:370px;
+  height:40px;
+  width:220px;
+  border:none;
+  border-bottom: 1px solid #343434;
+}
+
+input{
+  text-decoration: none;
+  outline:none;
+  height: 44px;
+    width: 300px;
+    font-size: 20px;
 }

@@ -20,9 +20,14 @@ const NewTitle = function (props) {
   return (
     <div className="overlay">
       <div className="popup">
-        <a className="close" href="/">
+        <div
+          className="close"
+          onClick={() => {
+            history.push('/');
+          }}
+        >
           X
-        </a>
+        </div>
         <form onSubmit={handleSubmit}>
           <input
             className="input"

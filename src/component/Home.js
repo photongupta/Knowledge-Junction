@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Details from './Details';
 import NewTitle from './NewTitle';
 import Menubar from './Menubar';
-import TitleNavbar from './TitleNavbar';
+import SearchInput from './SearchInput';
 import Api from './api';
 
 const Home = function (props) {
@@ -19,17 +18,13 @@ const Home = function (props) {
 
   return (
     <Router>
-      <Menubar onLogout={props.onLogout} />
-      <TitleNavbar topics={topics} onTitle={handleTitle} />
+      <Menubar onLogout={props.onLogout} topics={props.topics} />
       <Switch>
         <Route exact path="/newTitle">
-          <NewTitle onTitle={props.onTitle} />
+          <NewTitle onTitle={handleTitle} />
         </Route>
-        <Route exact path="/:id">
-          <Details topics={props.topics} />
-        </Route>
-        <Route exact path="/">
-          <Details topics={props.topics} />
+        <Route path="/">
+          <SearchInput topics={topics} onTitle={handleTitle} />
         </Route>
       </Switch>
     </Router>

@@ -34,8 +34,12 @@ const Details = function (props) {
       )}
 
       <div className="button">
-        <button onClick={() => setEditable(true)}>Edit</button>
-        <button onClick={saveContent}>Save</button>
+        <button disabled={isEditable} onClick={() => setEditable(true)}>
+          Edit
+        </button>
+        <button disabled={!isEditable} onClick={saveContent}>
+          Save
+        </button>
       </div>
     </div>
   );

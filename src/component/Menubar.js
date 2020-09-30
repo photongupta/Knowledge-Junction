@@ -10,11 +10,9 @@ const Menubar = function (props) {
     <div className="header">
       <img src="/images/logo-icon.png" alt="logo" className="logo-icon" />
       <div className="menu">
+        <img src="/images/search.png" className="add icon" alt="add" />
         <NavLink to="/newTitle">
           <img src="/images/plus.png" className="add icon" alt="add" />
-        </NavLink>
-        <NavLink to="/search">
-          <img src="/images/search.png" className="add icon" alt="add" />
         </NavLink>
         <img src={user.picture} alt="avatar" className="avatar" />
         <div className="dropdown-links">

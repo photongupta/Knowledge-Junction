@@ -1,7 +1,22 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import {
+  NavLink,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import Details from './Details';
 
 const TitleNavbar = function (props) {
+  const [defaultTitle, setDefaultTitle] = useState(1);
+
+  useEffect(() => {
+    if (props.topics.length) {
+      console.log(props.topics[0].id);
+      setDefaultTitle(props.topics[0].id);
+    }
+  }, [props.topics]);
+
   const titles = props.topics.map(({title, id}, index) => (
     <NavLink
       activeClassName="current"
@@ -12,7 +27,18 @@ const TitleNavbar = function (props) {
       {title}
     </NavLink>
   ));
-  return <div className="navBar">{titles}</div>;
+
+  return (
+    <Router>
+      <div className="navBar">{titles}</div>
+      <Route exact path="/">
+        <Redirect to={`/${defaultTitle}`} />
+      </Route>
+      <Route exact path="/:id">
+        <Details />
+      </Route>
+    </Router>
+  );
 };
 
 export default TitleNavbar;

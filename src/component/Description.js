@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 const Description = function (props) {
   let blocks = '';
 
-  if (props.description) {
+  if (props.description && props.description.blocks) {
     blocks = props.description.blocks.map((element, index) => {
       switch (element.type) {
         case 'paragraph':

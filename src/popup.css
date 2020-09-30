@@ -24,15 +24,15 @@
 
 
 .popup .close {
-  position: absolute;
-  top: 3px;
-  right: 16px;
+  position: relative;
+  top: -8px;
+  left: 340px;
   transition: all 200ms;
   font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
   color: #333;
+  cursor: pointer;
 }
+
 
 .popup .close:hover {
   color: #d84106;
