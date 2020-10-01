@@ -12,7 +12,6 @@ const TitleNavbar = function (props) {
 
   useEffect(() => {
     if (props.topics.length) {
-      console.log(props.topics[0].id);
       setDefaultTitle(props.topics[0].id);
     }
   }, [props.topics]);

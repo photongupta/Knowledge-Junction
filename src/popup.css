@@ -9,7 +9,6 @@
   z-index: 10;
 }
 
-
 .popup {
   margin: 70px auto;
   padding: 20px;
@@ -20,8 +19,6 @@
   transition: all 5s ease-in-out;
   top: 20%;
 }
-
-
 
 .popup .close {
   position: relative;
@@ -34,8 +31,6 @@
   font-weight: 600;
 }
 
-
 .popup .close:hover {
   color: #d84106;
 }
-
