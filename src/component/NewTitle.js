@@ -63,11 +63,7 @@ const NewTitle = function (props) {
       <Container>
         <CloseButton onClick={updateHistory}>X</CloseButton>
         <form onSubmit={handleSubmit}>
-          <Input
-            class="new-title"
-            onChange={handleChange}
-            placeholder="Enter title here..."
-          />
+          <Input onChange={handleChange} placeholder="Enter title here..." />
           <br />
           <SubmitButton type="submit">Add</SubmitButton>
         </form>
@@ -75,7 +71,5 @@ const NewTitle = function (props) {
     </Overlay>
   );
 };
-
-NewTitle.defaultProps = {value: ''};
 
 export default NewTitle;

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import EditorJs from 'react-editor-js';
 import EditorTools from './EditorTool';
+import ContentBox from './ContentBox.js';
 
 const Editor = function (props) {
   const [editorInstance, setEditorInstance] = useState();
@@ -11,7 +12,7 @@ const Editor = function (props) {
   };
 
   return (
-    <div className="details">
+    <ContentBox>
       <EditorJs
         autofocus="true"
         data={props.content}
@@ -19,7 +20,7 @@ const Editor = function (props) {
         onChange={handleChange}
         tools={EditorTools}
       />
-    </div>
+    </ContentBox>
   );
 };
 

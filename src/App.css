@@ -15,16 +15,9 @@
   color: #666;
 }
 
-
 .current{
   color: black;
   text-decoration: underline;
-}
-
-.details{
-  position: absolute;
-  left: 15%;
-  top: 19%
 }
 
 .button{
@@ -36,16 +29,12 @@
   width: 150px;
 }
 
-
-.new-title{
-  height: 35px;
-  width: 250px;
-}
-
-input{
-  text-decoration: none;
-  outline: none;
-  font-size: 20px;
+.search-input{
+  position: absolute;
+  top: 7px;
+  right: 280px;
+  border: none;
+  border-bottom: 1px solid #343434;
 }
 
 .code {
@@ -63,18 +52,8 @@ input{
   resize: vertical;
 }
 
-
-.details,.ce-block__content{
+.ce-block__content{
   max-width: 900px;
 }
 
-.search-input{
-  position: absolute;
-  top: 7px;
-  right: 280px;
-  height: 40px;
-  width: 220px;
-  border: none;
-  border-bottom: 1px solid #343434;
-}
 

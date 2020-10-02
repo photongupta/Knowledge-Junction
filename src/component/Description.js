@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import ContentBox from './ContentBox';
 
 const Description = function (props) {
   let blocks = '';
@@ -46,7 +47,7 @@ const Description = function (props) {
       }
     });
   }
-  return <div className="details">{blocks}</div>;
+  return <ContentBox>{blocks}</ContentBox>;
 };
 
 export default Description;
