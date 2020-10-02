@@ -183,20 +183,6 @@ input{
   max-width: 900px;
 }
 
-.container{
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  align-items: center;
-  position: relative;
-  top: 154px;
-  width: 689px;
-  height: 490px;
-  left: 373px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
 .Oauth-link-container{
   display: flex;
   justify-content: center;
