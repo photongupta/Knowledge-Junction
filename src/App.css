@@ -101,7 +101,6 @@
   background-clip: padding-box;
 }
 
-
 .logout-link {
   text-align: left;
   font-size: 20px;
@@ -115,10 +114,7 @@
   color:red;
 }
 
-.logo-img{
-  height: 300px;
-  margin: 25px
-}
+
 
 .logo-icon{
   height: 48px;
@@ -181,26 +177,6 @@ input{
 
 .details,.ce-block__content{
   max-width: 900px;
-}
-
-.Oauth-link-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  box-shadow: 0 2px 2px 0 #aaa;
-  width: 280px;
-  height: 53px;
-  border-radius: 4px;
-}
-
-.Oauth-link-container:hover{
-  box-shadow: 2px 4px 8px 0 #aaa;
-}
-
-.Oauth-link-container>img{
-  margin-right: 10px;
 }
 
 .search-input{
