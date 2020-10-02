@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NewTitle from './NewTitle';
-import Menubar from './Menubar';
+import Header from './Header';
 import SearchInput from './SearchInput';
 import Api from './api';
 
@@ -18,7 +18,7 @@ const Home = function (props) {
 
   return (
     <Router>
-      <Menubar onLogout={props.onLogout} topics={props.topics} />
+      <Header onLogout={props.onLogout} topics={props.topics} />
       <Switch>
         <Route exact path="/newTitle">
           <NewTitle onTitle={handleTitle} />
