@@ -10,12 +10,12 @@ const Input = function (props) {
 
   return (
     <input
-      className="search-input"
+      className={props.class}
       type="text"
       value={value}
       onChange={handleChange}
       required
-      placeholder="Search here..."
+      placeholder={props.placeholder}
     />
   );
 };

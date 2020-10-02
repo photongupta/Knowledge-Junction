@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../popup.css';
 import TitleNavbar from './TitleNavbar';
 import Input from './Input.js';
 
@@ -44,7 +43,11 @@ const SearchInput = function (props) {
 
   return (
     <div>
-      <Input onChange={handleChange} />
+      <Input
+        onChange={handleChange}
+        class="search-input"
+        placeholder="search here..."
+      />
       {props.topics ? (
         <TitleNavbar
           topics={filteredTopics ? filteredTopics : props.topics}

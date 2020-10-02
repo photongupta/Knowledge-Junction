@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import '../popup.css';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
+import Input from './Input';
 
 const Container = styled.div`
   padding: 18px 30px;
@@ -45,7 +45,7 @@ const NewTitle = function (props) {
   const history = useHistory();
   const [value, setValue] = useState(props.value);
 
-  const handleChange = (e) => setValue(e.target.value);
+  const handleChange = (value) => setValue(value);
 
   const updateHistory = () => history.push('/');
 
@@ -63,14 +63,10 @@ const NewTitle = function (props) {
       <Container>
         <CloseButton onClick={updateHistory}>X</CloseButton>
         <form onSubmit={handleSubmit}>
-          <input
-            className="new-title"
-            type="text"
-            value={value}
+          <Input
+            class="new-title"
             onChange={handleChange}
-            required
             placeholder="Enter title here..."
-            autoFocus
           />
           <br />
           <SubmitButton type="submit">Add</SubmitButton>
