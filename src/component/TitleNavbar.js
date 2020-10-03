@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import ContentContainer from './content/Container';
+import ContentContainer from './content/ContentContainer';
 
 const TitleNavbar = function (props) {
   const [defaultTitle, setDefaultTitle] = useState(1);

@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NewTitle from './NewTitle';
 import Header from './Header';
 import SearchInput from './SearchInput';
-import Api from './api';
+import Api from '../requestApi';
 
 const Home = function (props) {
   const [topics, setTopics] = useState([]);
