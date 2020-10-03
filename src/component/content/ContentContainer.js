@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import Editor from './Editor';
-import Api from './api';
+import Api from '../api';
 import Description from './Description';
 import styled from 'styled-components';
 
@@ -19,7 +19,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Content = function (props) {
+const ContentContainer = function (props) {
   const [content, setContent] = useState(null);
   const [isEditable, setEditable] = useState(false);
   const {id} = useParams();
@@ -55,4 +55,4 @@ const Content = function (props) {
   );
 };
 
-export default Content;
+export default ContentContainer;
