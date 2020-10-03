@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import Editor from './Editor';
-import Api from '../api';
+import Api from '../../requestApi';
 import Description from './Description';
 import styled from 'styled-components';
 

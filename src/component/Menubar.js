@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import Api from './api';
+import Api from '../requestApi';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
-import UserContext from './UserContext';
+import UserContext from './context/UserContext';
 
 const Menu = styled.div`
   display: flex;

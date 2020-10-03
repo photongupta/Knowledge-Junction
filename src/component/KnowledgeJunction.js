@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Api from './api';
+import Api from '../requestApi';
 import Index from './Index';
 import Home from './Home';
-import UserContext from './UserContext';
+import UserContext from './context/UserContext';
 
 const KnowledgeJunction = function () {
   const [user, setUser] = useState(null);

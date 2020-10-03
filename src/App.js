@@ -3,11 +3,7 @@ import KnowledgeJunction from './component/KnowledgeJunction';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <KnowledgeJunction />
-    </div>
-  );
+  return <KnowledgeJunction />;
 }
 
 export default App;
