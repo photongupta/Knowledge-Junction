@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import Details from './Details';
+import Content from './Content';
 
 const TitleNavbar = function (props) {
   const [defaultTitle, setDefaultTitle] = useState(1);
@@ -34,7 +34,7 @@ const TitleNavbar = function (props) {
         <Redirect to={`/${defaultTitle}`} />
       </Route>
       <Route exact path="/:id">
-        <Details />
+        <Content />
       </Route>
     </Router>
   );

@@ -1,3 +1,7 @@
+.ce-block__content{
+  max-width: 900px;
+}
+
 .navBar{
   overflow: auto;
   white-space: nowrap;
@@ -20,15 +24,6 @@
   text-decoration: underline;
 }
 
-.button{
-  position: absolute;
-  top: 18%;
-  right: 10%;
-  display: flex;
-  justify-content: space-between;
-  width: 150px;
-}
-
 .search-input{
   position: absolute;
   top: 7px;
@@ -36,24 +31,3 @@
   border: none;
   border-bottom: 1px solid #343434;
 }
-
-.code {
-  min-height: 200px;
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
-  color: #41314e;
-  line-height: 1.6em;
-  font-size: 12px;
-  background: #f8f7fa;
-  border: 1px solid #f1f1f4;
-  box-shadow: none;
-  white-space: pre;
-  word-wrap: normal;
-  overflow-x: auto;
-  resize: vertical;
-}
-
-.ce-block__content{
-  max-width: 900px;
-}
-
-

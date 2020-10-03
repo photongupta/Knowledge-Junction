@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import ContentBox from './ContentBox';
+import styled from 'styled-components';
+
+const Code = styled.textarea`
+  line-height: 1.6em;
+  font-size: 15px;
+  color: #41314e;
+  background: #f8f7fa;
+  border: 1px solid #f1f1f4;
+  resize: vertical;
+`;
 
 const Description = function (props) {
   let blocks = '';
@@ -9,12 +19,7 @@ const Description = function (props) {
     blocks = props.description.blocks.map((element, index) => {
       switch (element.type) {
         case 'paragraph':
-          return (
-            <div key={index}>
-              <div>{ReactHtmlParser(element.data.text)}</div>
-              <br />
-            </div>
-          );
+          return <p key={index}>{ReactHtmlParser(element.data.text)}</p>;
 
         case 'header':
           return <h2 key={index}>{element.data.text}</h2>;
@@ -26,27 +31,28 @@ const Description = function (props) {
             </a>
           );
 
+        case 'delimiter':
+          return <h1 key={index}> * * *</h1>;
+
         case 'code':
           return (
             <div key={index}>
-              <textarea
+              <Code
                 defaultValue={ReactHtmlParser(element.data.code)}
-                className="code"
                 cols="90"
                 rows="10"
-              ></textarea>
+              />
+              <br />
               <br />
             </div>
           );
-
-        case 'delimiter':
-          return <h1 key={index}> * * *</h1>;
 
         default:
           return <p key={index}>No Description.</p>;
       }
     });
   }
+
   return <ContentBox>{blocks}</ContentBox>;
 };
 
