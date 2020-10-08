@@ -8,6 +8,6 @@ jobs:
       deploy:
         provider: heroku
         app: photon-knowledge-junction
-        api_key: 07ba79d5-40c1-41f9-be33-28058b3a6d03
+        api_key: 8ff7acb1-866d-46ba-8869-9be6a99e6fa8
         run: restart
         skip_cleanup: true
