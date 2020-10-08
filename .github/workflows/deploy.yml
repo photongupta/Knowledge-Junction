@@ -14,18 +14,18 @@ jobs:
           npm install
           npm test
           cd ..
-    #   - name: Create build
-      #   env:
-      #     REACT_APP_AUTH_URL: /api/authenticate
-      #   run: |
-      #     git clone https://github.com/${{secrets.USERNAME}}/${{secrets.FRONTEND}}.git frontend
-      #     cd frontend
-      #     npm install
-      #     npm test
-      #     npm run build
-      #     mv build/* ../backend/public/.
-      #     cd ..
-      #     rm -rf frontend
+      - name: Create build
+        env:
+          REACT_APP_AUTH_URL: /api/authenticate
+        run: |
+          git clone https://github.com/${{secrets.USERNAME}}/Knowledge-Junction.git frontend
+          cd frontend
+          npm install
+          npm test
+          npm run build
+          mv build/* ../backend/public/.
+          cd ..
+          rm -rf frontend
       # - name: deploy to heroku
       #   run: |
       #     cd backend
