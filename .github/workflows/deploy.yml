@@ -27,10 +27,11 @@ jobs:
           ls backend
           ls backend/public
           rm -rf frontend
-      # - name: deploy to heroku
-      #   run: |
-      #     cd backend
-      #     git remote add heroku https://heroku:${{secrets.HEROKU_API_KEY}}@git.heroku.com/${{secrets.HEROKU_APP_NAME}}.git
-      #     git add .
-      #     git commit -m "Backend: $(git log -n 1 --format=%B)"
-      #     git push heroku master --set-upstream -f;
+
+      - name: deploy to heroku
+        run: |
+          cd backend
+          git remote add heroku https://heroku:${{secrets.HEROKU_API_KEY}}@git.heroku.com/${{secrets.HEROKU_APP_NAME}}.git
+          git add .
+          git commit -m "Backend: $(git log -n 1 --format=%B)"
+          git push heroku master --set-upstream -f;
