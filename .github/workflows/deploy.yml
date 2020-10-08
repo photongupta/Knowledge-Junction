@@ -14,16 +14,16 @@ jobs:
           npm install
           npm test
           cd ..
+          
       - name: Create build
-
         run: |
-          git clone https://github.com/${{secrets.USERNAME}}/Knowledge-Junction.git frontend
-          cd frontend
-          npm install
-          npm test
-          npm run build
-          mv build/* ../backend/public/.
-          cd ..
+          # git clone https://github.com/${{secrets.USERNAME}}/Knowledge-Junction.git frontend
+          # cd frontend
+          # npm install
+          # npm test
+          # npm run build
+          # mv build/* ../backend/public/.
+          # cd ..
           ls backend
           ls backend/public 
           rm -rf frontend
