@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: checkout backend
         run: |
-          git clone https://github.com/palpriyanshu/library-backend.git backend
+          git clone https://github.com/${{secrets.USERNAME}}/${{secrets.BACKEND}}.git backend
           cd backend
           mkdir -p ./public
           npm install
@@ -18,7 +18,7 @@ jobs:
         env:
           REACT_APP_AUTH_URL: /api/authenticate
         run: |
-          git clone https://github.com/palpriyanshu/Library-react.git frontend
+          git clone https://github.com/${{secrets.USERNAME}}/${{secrets.FRONTEND}}.git frontend
           cd frontend
           npm install
           npm test
