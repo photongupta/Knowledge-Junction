@@ -5,16 +5,16 @@ jobs:
   build:
     runs-on: macos-latest
 
-    steps:
-      - name: checkout backend
-        run: |
-          git clone https://github.com/${{secrets.USERNAME}}/${{secrets.BACKEND}}.git backend
-          cd backend
-          mkdir -p ./public
-          npm install
-          npm test
-          cd ..
-      - name: Create build
+    # steps:
+    #   - name: checkout backend
+    #     run: |
+    #       git clone https://github.com/${{secrets.USERNAME}}/${{secrets.BACKEND}}.git backend
+    #       cd backend
+    #       mkdir -p ./public
+    #       npm install
+    #       npm test
+    #       cd ..
+    #   - name: Create build
       #   env:
       #     REACT_APP_AUTH_URL: /api/authenticate
       #   run: |
