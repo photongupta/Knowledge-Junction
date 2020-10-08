@@ -14,12 +14,13 @@ jobs:
           npm install
           npm test
           cd ..
-          
+
       - name: Create build
         run: |
-          ls backend
-          ls backend/public 
-          rm -rf frontend
+          git clone https://github.com/${{secrets.USERNAME}}/Knowledge-Junction.git frontend
+          cd frontend
+          ls
+   
       # - name: deploy to heroku
       #   run: |
       #     cd backend
